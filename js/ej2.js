@@ -10,12 +10,27 @@
 let cuenta = {
     titular: `Alex`,
     saldo: 0,
-    ingresar: (dinero) => {cuenta.saldo += dinero;},
-    extraer: (dinero) => {cuenta.saldo -= dinero;},
-    informar: () => {document.write(`<p class="texto">La cuenta perteneciente a ${cuenta.titular} tiene un balance de ${cuenta.saldo}<br></p>`)}
-}
+    ingresar(deposito){this.saldo += deposito;},
+    extraer(montoExtraer){
+        if(this.saldo >= montoExtraer){
+            this.saldo -=montoExtraer;
+        } else {
+            alert(`Usted no tiene dinero insuficiente`);
+        }
+    },
+    informar(){
+        console.log(this)
+        document.write(`<p class="texto">La cuenta perteneciente a ${this.titular} tiene un balance de ${this.saldo}<br></p>`);}
+};
 
 cuenta.informar();
-cuenta.ingresar(500);
-cuenta.extraer(200);
+
+let deposito = parseFloat(prompt(`Ingrese un monto`));
+cuenta.ingresar(deposito);
+
+cuenta.informar();
+
+let montoExtraer = parseFloat(prompt(`Ingrese un monto a retirar`));
+cuenta.extraer(montoExtraer);
+
 cuenta.informar();
