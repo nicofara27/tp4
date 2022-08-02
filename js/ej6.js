@@ -49,7 +49,7 @@ class Libro {
         return this.nroPaginas;
     }
 }
-let masPaginas = () => {
+let comparacionPaginas = () => {
     if(witcher.mostrarNroPaginas > darkTower.mostrarNroPaginas) {
         document.write(`<p class="texto">El libro ${witcher.mostrarTitulo} tiene ${witcher.mostrarNroPaginas-darkTower.mostrarNroPaginas} paginas mas que ${darkTower.mostrarTitulo}</p>`);
     } else {
@@ -64,4 +64,4 @@ let darkTower = new Libro(9786073128520, "La Torre Oscura I: El Pistolero", "Ste
 witcher.mostrarLibro();
 darkTower.mostrarLibro();
 
-masPaginas();
+comparacionPaginas();
